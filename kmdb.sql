@@ -115,6 +115,7 @@
 DROP TABLE IF EXISTS movies;
 DROP TABLE IF EXISTS actors;
 DROP TABLE IF EXISTS studios;
+DROP TABLE IF EXISTS roles;
 
 -- Create new tables, according to your domain model
 
@@ -127,15 +128,15 @@ CREATE TABLE movies (
 );
 
 CREATE TABLE actors (
-  actor_id INT PRIMARY KEY AUTO_INCREMENT,
+  actor_id INTEGER PRIMARY KEY AUTOINCREMENT,
   actor_name TEXT
 );
 
 CREATE TABLE studios (
-    studio_id INT PRIMARY KEY AUTO_INCREMENT,
+    studio_id INTEGER PRIMARY KEY AUTOINCREMENT,
     studio_name TEXT
 );
-CREATE TABLE Movie_Actors (
+CREATE TABLE roles (
     movie_id INT,
     actor_id INT,
     character_name TEXT
@@ -143,17 +144,19 @@ CREATE TABLE Movie_Actors (
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
-INSERT INTO movies(title, year_released, mpaa_rating, studio_id)
+INSERT INTO movies(id, title, year_released, rating, studio_id)
 VALUES 
-    ('Batman Begins', 2005, 'PG-13', 1),
-    ('The Dark Knight', 2008, 'PG-13', 1),
-    ('The Dark Knight Rises', 2012, 'PG-13', 1);
+    (1, 'Batman Begins', 2005, 'PG-13', 1),
+    (2, 'The Dark Knight', 2008, 'PG-13', 1),
+    (3, 'The Dark Knight Rises', 2012, 'PG-13', 1);
 
 
 -- Prints a header for the movies output
 .print "Movies"
 .print "======"
 .print ""
+select * FROM movies;
+
 
 -- The SQL statement for the movies output
 -- TODO!
