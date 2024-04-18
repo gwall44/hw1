@@ -155,11 +155,11 @@ VALUES
 .print "Movies"
 .print "======"
 .print ""
-select * FROM movies;
-
-
 -- The SQL statement for the movies output
--- TODO!
+
+SELECT movies.title, movies.year_released,movies.rating, studios.studio_name
+FROM movies
+INNER JOIN studios ON movies.studio_id = studios.studio_id;
 
 -- Prints a header for the cast output
 .print ""
