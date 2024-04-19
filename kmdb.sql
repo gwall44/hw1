@@ -153,12 +153,8 @@ VALUES
 INSERT INTO studios(studio_id,studio_name )
 VALUES 
     (1, 'Warner Brothers');
-
-INSERT INTO roles(movie_id,actor_id,character_name)
-VALUES 
-    (1,1,'Bruce Wayne')
-    (1,2,'Alfred');
-INSERT INTO actors (actor_name) VALUES
+INSERT INTO actors (actor_name) 
+VALUES
 ('Christian Bale'),
 ('Michael Caine'),
 ('Liam Neeson'),
@@ -207,7 +203,11 @@ INNER JOIN studios ON movies.studio_id = studios.studio_id;
 .print "Top Cast"
 .print "========"
 .print ""
-SELECT * FROM actors
+SELECT movies.title, actors.actor_name, roles.character_name
+FROM movies
+JOIN roles ON movies.movie_id = roles.movie_id
+JOIN actors ON roles.actor_id = actors.actor_id;
+
 -- The SQL statement for the cast output
 -- TODO!
 
